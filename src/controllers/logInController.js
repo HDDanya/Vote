@@ -31,4 +31,9 @@ const postLogIn = async (req, res) => {
   }
 };
 
+const LogOut = (req, res) => {
+  req.session.destroy();
+  renderTemplate(Login, null, res);
+};
+
 module.exports = { renderLogIn, postLogIn };
