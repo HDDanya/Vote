@@ -10,6 +10,8 @@ const { sequelize } = require('../db/models');
 
 const app = express();
 const mainRouter = require('./routes/mainRouter');
+const signUpRouter = require('./routes/signUpRouter');
+const logInRouter = require('./routes/logInRouter');
 
 app.use(morgan('dev'));
 
@@ -24,7 +26,7 @@ const sessionConfig = {
   store: new FileStore(),
   secret: SESSION_SECRET ?? '123',
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   cookie: {
     maxAge: 1000 * 60 * 60 * 24 * 10,
     httpOnly: true,
@@ -33,7 +35,9 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 
-app.use('/', mainRouter)
+app.use('/', mainRouter);
+app.use('/signup', signUpRouter);
+app.use('/login', logInRouter);
 
 app.listen(PORT, async () => {
   try {
