@@ -5,21 +5,22 @@ module.exports = function Main({ title }) {
   return (
     <Layout>
 
-      {title.map((el) => (
-        <div className='card_container'>
-          <div class="card " style={{ width: 18 + 'rem' }}>
-            <img src="" class="card-img-top" alt="" />
-            <div class="card-body">
-              <h5 class="card-title">
+      <div className='card_container'>
+        {title.map((el) => (
+          <div className="card" style={{ width: 18 + 'rem' }}>
+            <img src="" className="card-img-top" alt="" />
+            <div className="card-body">
+              <h5 className="card-title">
                 {el.title}
-                {' '}
               </h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <p className="card-text">
+                {el.body}
+              </p>
+              <a id={el.id} href="#" className="btn btn-primary">Подробнее</a>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </Layout>
   );
 };
