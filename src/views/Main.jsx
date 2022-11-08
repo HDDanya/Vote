@@ -1,9 +1,10 @@
 const React = require('react');
-const Layout = require('./Layout')
+const Layout = require('./Layout');
 
 module.exports = function Main({ title }) {
   return (
     <Layout>
+
       {title.map((el) => (
         <div className='card_container'>
           <div class="card " style={{ width: 18 + 'rem' }}>
@@ -20,5 +21,5 @@ module.exports = function Main({ title }) {
         </div>
       ))}
     </Layout>
-  )
+  );
 };
