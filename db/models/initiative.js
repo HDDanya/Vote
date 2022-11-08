@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({User, Sphere}) {
-      this.belongsTo(User),
-      this.belongsTo(Sphere)
+      this.belongsTo(User,{ foreignKey: 'id' }),
+      this.belongsTo(Sphere,{ foreignKey: 'id' })
     }
   }
   Initiative.init({
