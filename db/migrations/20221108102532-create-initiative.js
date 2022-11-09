@@ -13,12 +13,6 @@ module.exports = {
       body: {
         type: Sequelize.STRING,
       },
-      votes_against: {
-        type: Sequelize.INTEGER,
-      },
-      votes_pro: {
-        type: Sequelize.INTEGER,
-      },
       date_end: {
         type: Sequelize.DATE,
       },
