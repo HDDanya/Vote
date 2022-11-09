@@ -1,4 +1,10 @@
 
+body {
+  padding: 5px;
+}
+
+
+
 .addInitForm {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -9,6 +15,7 @@
     display: flex;
     justify-content: center;
     margin: 20px;
+
 
 
 .signUpForm {
@@ -23,6 +30,7 @@
   box-shadow: 12px 12px 2px 1px rgba(109, 109, 221, 0.2);
 }
 .signUpForm >p {
+ 
   text-align: center;
   font-weight: bold;
 }
@@ -49,4 +57,3 @@ a {
   text-align: center;
   font-weight: bold;
 
-}

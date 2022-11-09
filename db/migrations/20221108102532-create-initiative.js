@@ -24,9 +24,27 @@ module.exports = {
       },
       level: {
         type: Sequelize.STRING,
+
+      UserID: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Users',
+          key: 'id',
+        },
+      },
+      SphereID: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Spheres',
+          key: 'id',
+        },
+
       },
       status: {
         type: Sequelize.STRING,
+
       },
       createdAt: {
         allowNull: false,

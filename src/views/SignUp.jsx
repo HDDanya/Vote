@@ -41,12 +41,12 @@ module.exports = function SignUp() {
         </div>
         <div className="buttonsForm">
           <button type="submit" className="btn btn-outline-success">Зарегистрироваться</button>
-          <button type="button" className="btn btn-outline-dark" href="/login">У меня есть аккаунт</button>
+          <button id="signupButton" type="button" className="btn btn-outline-dark" href="/login">У меня есть аккаунт</button>
 
         </div>
 
       </form>
-
+      <script defer src="./js/signupScript.js" />
     </Layout>
   );
 };
