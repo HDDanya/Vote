@@ -7,8 +7,8 @@ module.exports = function Main({ title, user }) {
 
       <div className="card_container">
         {title.map((el) => (
-          <div className="card" style={{ width: `${18}rem` }}>
-            <img src="" className="card-img-top" alt="" />
+          <div className="card" style={{ width: 18 + 'rem' }}>
+            {/* <img src="" className="card-img-top" alt="" /> */}
             <div className="card-body">
               <h5 className="card-title">
                 {el.title}
@@ -16,8 +16,7 @@ module.exports = function Main({ title, user }) {
               <p className="card-text">
                 {el.body}
               </p>
-              <a id={el.id} href="#" className="btn btn-primary">Подробнее</a>
-
+              <a href={`/entry/${el.id}`} className="btn btn-primary">Подробнее</a>
             </div>
           </div>
         ))}
