@@ -24,6 +24,7 @@ const postLogIn = async (req, res) => {
         res.sendStatus(401);
       } else {
         req.session.user = user.dataValues;
+        console.log(user.dataValues);
 
         res.json({
           name: user.firstname,
