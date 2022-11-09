@@ -27,7 +27,7 @@ module.exports = function Layout({ children }) {
                   <a className="nav-link active" aria-current="page" href="/signup">Регистрация</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Создать Инициативу</a>
+                  <a className="nav-link" href="/init">Создать Инициативу</a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="/logout">Выйти</a>

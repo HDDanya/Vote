@@ -24,16 +24,7 @@ module.exports = {
       },
       level: {
         type: Sequelize.STRING,
-      },
-      region: {
-        type: Sequelize.STRING,
-      },
-      municip: {
-        type: Sequelize.STRING,
-      },
-      status: {
-        type: Sequelize.STRING,
-      },
+
       UserID: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -49,6 +40,11 @@ module.exports = {
           model: 'Spheres',
           key: 'id',
         },
+
+      },
+      status: {
+        type: Sequelize.STRING,
+
       },
       createdAt: {
         allowNull: false,

@@ -10,10 +10,14 @@ const { sequelize } = require('../db/models');
 
 const app = express();
 const mainRouter = require('./routes/mainRouter');
+
+const initRouter = require('./routes/initRouter');
+
 const signUpRouter = require('./routes/signUpRouter');
 const logInRouter = require('./routes/logInRouter');
 const logOutRouter = require('./routes/logOutRouter');
 const { LogOut } = require('./controllers/logInController');
+
 
 app.use(morgan('dev'));
 
@@ -38,6 +42,9 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 
 app.use('/', mainRouter);
+
+app.use('/init', initRouter);
+
 app.use('/signup', signUpRouter);
 app.use('/login', logInRouter);
 app.use('/logout', logOutRouter);
