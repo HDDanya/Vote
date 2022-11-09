@@ -34,7 +34,7 @@ form.addEventListener('submit', async (event) => {
     } else {
       alert(`Здравствуйте, ${result.name} ${result.middlename}!`);
     }
-    window.location.href = '/main';
+    window.location.href = '/';
   }
   if (response.status === 400) { alert('Пользователь не зарегистрирован'); }
 });
