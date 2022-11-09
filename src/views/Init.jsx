@@ -1,9 +1,10 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Initiative({ sphereList }) {
+module.exports = function Initiative({ sphereList, municip, region }) {
   return (
     <Layout>
+      <script />
       <form method="POST" action="/init" className="addInitForm">
         <div className="mb-3">
           <div>
@@ -24,12 +25,20 @@ module.exports = function Initiative({ sphereList }) {
                <option value="Здравоохранение">Здравоохранение</option> */
             ))}
           </select>
-          <select name="level" className="form-select" aria-label="Default select example">
+          <select name="level" id="level-select" className="form-select" aria-label="Default select example">
             <option selected>Уровень инициативы</option>
             <option value="Федеральный">Федеральный</option>
             <option value="Региональный">Региональный</option>
             <option value="Муниципальный">Муниципальный</option>
           </select>
+
+          <div>
+            <input name="region" id="regInput" className="optionForSelect" value={region} />
+          </div>
+          <div>
+            <input name="municip" id="munInput" className="optionForSelect" value={municip} />
+          </div>
+
           <div className="createInitBtn">
             <div className="d-grid gap-2 col-6 mx-auto">
               <button id="addInitBtn" className="btn btn-primary" type="submit">Создать</button>
