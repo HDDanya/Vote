@@ -1,3 +1,16 @@
+
+.addInitForm {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin-top: 100px;
+}
+
+#addInitBtn {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+
+
 .signUpForm {
   margin-left: auto;
   margin-right: auto;
@@ -35,4 +48,5 @@ a {
 .logInForm >p {
   text-align: center;
   font-weight: bold;
+
 }
