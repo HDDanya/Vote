@@ -16,6 +16,7 @@ module.exports = function Layout({ children, isAuth }) {
         <title>Privet</title>
       </head>
       <body>
+
         {isAuth
           ? (
             <nav className="navbar navbar-expand-lg bg-light">
