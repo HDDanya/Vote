@@ -44,7 +44,7 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 
-app.use('/main', mainRouter);
+app.use('/', mainRouter);
 
 app.use('/init', initRouter);
 

@@ -4,15 +4,15 @@ const { Initiative, Sphere } = require('../../db/models');
 
 const renderInit = async (req, res) => {
 
-  const user = req.session?.userID;
+  const { user } = req.session;
   const { municip, region } = req.session.user;
-    if (user) {
+  if (user) {
     const sphereList = await Sphere.findAll();
     renderTemplate(Init, { sphereList, user, municip, region }, res);
 
   } else { res.send('<h2>Страница доступна только авторизированным пользователям</h2>'); }
 
- 
+
 };
 
 const addInitRender = async (req, res) => {
@@ -22,8 +22,7 @@ const addInitRender = async (req, res) => {
       body, level, SphereID,
     } = req.body;
 
-    const UserID = req.session?.userID;
-
+    const UserID = req.session?.user.id;
     /* const UserRegion = req.session?.user.region;
      const UserMunicip = req.session?.user.municip; */
 
