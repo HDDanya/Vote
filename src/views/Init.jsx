@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Initiative({ sphereList }) {
+module.exports = function Initiative({ sphereList, user }) {
   return (
     <Layout>
       <form method="POST" action="/init" className="addInitForm">

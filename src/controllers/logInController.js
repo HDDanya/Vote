@@ -40,7 +40,7 @@ const LogOut = (req, res) => {
   console.log(req.session);
   req.session.destroy();
   console.log(req.session);
-  res.redirect('/main');
+  res.redirect('/');
 };
 
 module.exports = { renderLogIn, postLogIn, LogOut };
