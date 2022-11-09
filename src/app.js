@@ -18,7 +18,6 @@ const logInRouter = require('./routes/logInRouter');
 const logOutRouter = require('./routes/logOutRouter');
 const { LogOut } = require('./controllers/logInController');
 
-
 app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, './public/')));
