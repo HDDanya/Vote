@@ -1,7 +1,7 @@
-'use strict';
 const {
-  Model
+  Model,
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Golos extends Model {
     /**
@@ -11,14 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ User, Initiative }) {
       this.belongsTo(User),
-      this.belongsTo(Initiative)
+        this.belongsTo(Initiative);
     }
   }
   Golos.init({
     UserId: DataTypes.INTEGER,
-    InitId: DataTypes.INTEGER,
+    InitiativeId: DataTypes.INTEGER,
     vote_against: DataTypes.INTEGER,
-    vote_pro: DataTypes.INTEGER
+    vote_pro: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Golos',

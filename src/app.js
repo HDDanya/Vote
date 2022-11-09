@@ -20,7 +20,7 @@ const logOutRouter = require('./routes/logOutRouter');
 const lkRouter = require('./routes/lkRouter');
 const filterRouter = require('./routes/filterRouter');
 const { LogOut } = require('./controllers/logInController');
-const entryRouter = require('./routes/entryRouter')
+const entryRouter = require('./routes/entryRouter');
 
 app.use(morgan('dev'));
 
@@ -56,7 +56,6 @@ app.use('/entry', entryRouter);
 app.use('/logout', logOutRouter);
 app.use('/lk', lkRouter);
 app.use('/filter', filterRouter);
-
 
 app.listen(PORT, async () => {
   try {

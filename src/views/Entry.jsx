@@ -16,8 +16,8 @@ module.exports = function ({ title, user }) {
           <li className="list-group-item">A third item</li>
         </ul>
         <div className="card-body">
-          <a name="vote" href="/vote" id={title.id} data-userid={user.id} className="card-link">Проголосовать "ЗА"</a>
-          <a name="vote" href="/vote" id={title.id} data-userid={user.id} className="card-link">Проголосовать "ПРОТИВ"</a>
+          <a name="vote" href="/vote" id={title.id} data-userid={user.id} className="card-link yes">Проголосовать "ЗА"</a>
+          <a name="vote" href="/vote" id={title.id} data-userid={user.id} className="card-link no">Проголосовать "ПРОТИВ"</a>
         </div>
       </div>
       <script defer src="/js/voteScript.js" />
