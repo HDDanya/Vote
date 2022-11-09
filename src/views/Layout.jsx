@@ -37,10 +37,21 @@ module.exports = function Layout({ children, isAuth }) {
                       Фильтр инициатив
                     </a>
                     <ul className="dropdown-menu">
-                      <li><a className="dropdown-item" href="#">По федеральному уровню</a></li>
-                      <li><a className="dropdown-item" href="#">На уровне региона</a></li>
-                      <li><hr className="dropdown-divider" /></li>
-                      <li><a className="dropdown-item" href="#">На муниципальном уровне</a></li>
+                      <li>
+                        <a className="dropdown-item" href="/filter/?show=federal">По федеральному уровню</a>
+                      </li>
+                      <li>
+                        <a className="dropdown-item" href="/filter/?show=region">На уровне региона</a>
+                      </li>
+                      <li>
+                        <a className="dropdown-item" href="/filter/?show=municipal">На муниципальном уровне</a>
+                      </li>
+                      <li>
+                        <a className="dropdown-item" href="/filter/?show=active">Активные</a>
+                      </li>
+                      <li>
+                        <a className="dropdown-item" href="/filter/?show=closed">Закрытые</a>
+                      </li>
                     </ul>
                   </li>
                   <li className="nav-item">

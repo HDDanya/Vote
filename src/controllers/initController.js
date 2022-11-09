@@ -3,6 +3,7 @@ const Init = require('../views/Init');
 const { Initiative, Sphere } = require('../../db/models');
 
 const renderInit = async (req, res) => {
+
   const user = req.session?.userID;
   const { municip, region } = req.session.user;
     if (user) {

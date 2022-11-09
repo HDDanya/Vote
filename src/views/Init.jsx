@@ -4,8 +4,9 @@ const Layout = require('./Layout');
 
 module.exports = function Initiative({ sphereList, user, municip, region }) {
   return (
-    <Layout>
+    <Layout Layout isAuth={user}>
       <script />
+
       <form method="POST" action="/init" className="addInitForm">
         <div className="mb-3">
           <div>
