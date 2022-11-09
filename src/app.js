@@ -12,10 +12,11 @@ const app = express();
 const mainRouter = require('./routes/mainRouter');
 const signUpRouter = require('./routes/signUpRouter');
 const logInRouter = require('./routes/logInRouter');
+const entryRouter = require('./routes/entryRouter')
 
 app.use(morgan('dev'));
 
-app.use(express.static(path.join(__dirname, './public/')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -38,6 +39,7 @@ app.use(session(sessionConfig));
 app.use('/', mainRouter);
 app.use('/signup', signUpRouter);
 app.use('/login', logInRouter);
+app.use('/entry', entryRouter)
 
 app.listen(PORT, async () => {
   try {
