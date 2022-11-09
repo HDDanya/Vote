@@ -28,7 +28,12 @@ form.addEventListener('submit', async (event) => {
     alert('Неверная пара логин/пароль');
   }
   if (response.status === 200) {
-    alert('Добро пожаловать!');
+    const result = await response.json();
+    if (!result.name || !result.name) {
+      alert('Добро пожаловать!');
+    } else {
+      alert(`Здравствуйте, ${result.name} ${result.middlename}!`);
+    }
     window.location.href = '/main';
   }
   if (response.status === 400) { alert('Пользователь не зарегистрирован'); }

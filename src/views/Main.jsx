@@ -1,9 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Main({ title }) {
+module.exports = function Main({ title, user }) {
   return (
-    <Layout>
+    <Layout isAuth={user}>
 
       <div className="card_container">
         {title.map((el) => (
