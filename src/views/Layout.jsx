@@ -13,6 +13,7 @@ module.exports = function Layout({ children, isAuth }) {
         <link rel="stylesheet" href="/css/publicStyles.css" />
         <link rel="stylesheet" href="/css/personalArea.css" />
         <script defer src="/js/publicScript.js" />
+        <script defer src="/js/levelOption.js" />
         <title>Privet</title>
       </head>
       <body>
@@ -23,7 +24,7 @@ module.exports = function Layout({ children, isAuth }) {
               <div className="container-fluid">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                   <li className="nav-item">
-                    <a className="nav-link" href="/main">На главную</a>
+                    <a className="nav-link" href="/">На главную</a>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link" href="/init">Создать Инициативу</a>

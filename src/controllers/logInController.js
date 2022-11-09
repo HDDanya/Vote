@@ -24,6 +24,7 @@ const postLogIn = async (req, res) => {
         res.sendStatus(401);
       } else {
         req.session.user = user.dataValues;
+        console.log(user.dataValues);
 
         res.json({
           name: user.firstname,
@@ -40,7 +41,7 @@ const LogOut = (req, res) => {
   console.log(req.session);
   req.session.destroy();
   console.log(req.session);
-  res.redirect('/main');
+  res.redirect('/');
 };
 
 module.exports = { renderLogIn, postLogIn, LogOut };

@@ -9,6 +9,7 @@ const renderSignUp = (req, res) => {
 };
 
 const postSignUp = async (req, res) => {
+  console.log(req.body);
   try {
     const hashedPass = await bcrypt.hash(req.body.password, 10);
     const {
@@ -22,6 +23,7 @@ const postSignUp = async (req, res) => {
     if (error.fields.email === req.body.email) {
       res.send('Этот почтовый ящик уже используется');
     }
+    
   }
   // const user = req.session?.user;
 };

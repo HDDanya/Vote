@@ -15,14 +15,16 @@ const initRouter = require('./routes/initRouter');
 
 const signUpRouter = require('./routes/signUpRouter');
 const logInRouter = require('./routes/logInRouter');
+
 const logOutRouter = require('./routes/logOutRouter');
 const lkRouter = require('./routes/lkRouter');
 const filterRouter = require('./routes/filterRouter');
 const { LogOut } = require('./controllers/logInController');
+const entryRouter = require('./routes/entryRouter')
 
 app.use(morgan('dev'));
 
-app.use(express.static(path.join(__dirname, './public/')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -48,9 +50,13 @@ app.use('/init', initRouter);
 
 app.use('/signup', signUpRouter);
 app.use('/login', logInRouter);
+
+app.use('/entry', entryRouter);
+
 app.use('/logout', logOutRouter);
 app.use('/lk', lkRouter);
 app.use('/filter', filterRouter);
+
 
 app.listen(PORT, async () => {
   try {
