@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Initiative({ children }) {
+module.exports = function Initiative({ sphereList }) {
   return (
     <Layout>
       <form method="POST" action="/init" className="addInitForm">
@@ -14,6 +14,16 @@ module.exports = function Initiative({ children }) {
             <label htmlFor="initBody" className="form-label">Описание</label>
             <textarea name="body" className="form-control" id="exampleFormControlTextarea1" placeholder="Подробное описание инициативы с мотивацией" rows="10" />
           </div>
+          <select name="SphereID" className="form-select" aria-label="Default select example">
+
+            <option selected>Раздел</option>
+            {sphereList.map((sphere) => (
+              <option value={sphere.id} key={sphere.id}>{sphere.title}</option>
+              /*  <option value="Транспорт и дороги">Транспорт и дороги</option>
+               <option value="Образование и наука">Образование и наука</option>
+               <option value="Здравоохранение">Здравоохранение</option> */
+            ))}
+          </select>
           <select name="level" className="form-select" aria-label="Default select example">
             <option selected>Уровень инициативы</option>
             <option value="Федеральный">Федеральный</option>

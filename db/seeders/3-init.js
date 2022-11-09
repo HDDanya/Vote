@@ -23,11 +23,11 @@ module.exports = {
       SphereID: 1,
       createdAt: new Date(),
       updatedAt: new Date(),
-    },
-    ], {});
+    }], {});
   },
 
   async down(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete('Initiatives', null, {});
     /**
      * Add commands to revert seed here.
      *

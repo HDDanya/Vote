@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
 
-    static associate({Initiative}) {
-      this.hasMany(Initiative,{ foreignKey: 'SphereID' })
+    static associate({ Initiative }) {
+      this.hasMany(Initiative, { foreignKey: 'SphereID' });
     }
   }
   Sphere.init({
