@@ -6,11 +6,11 @@ const renderFilter = async (req, res) => {
   try {
     const { user } = req.session;
     if (req.query.show === 'federal') {
-      const allTitle = await Initiative.findAll({ where: { level: req.query.show } });
+      const allTitle = await Initiative.findAll({ where: { level: 'Федеральный' } });
       renderTemplate(Filter, { user, allTitle }, res);
     }
     if (req.query.show === 'region') {
-      const allTitle = await Initiative.findAll({ where: { level: req.query.show } });
+      const allTitle = await Initiative.findAll({ where: { level: 'Региональный' } });
       renderTemplate(Filter, { user, allTitle }, res);
     }
     if (req.query.show === 'active') {
