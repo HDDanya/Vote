@@ -19,8 +19,12 @@ module.exports = function SignUp() {
           <input name="middlename" type="text" className="form-control" id="exampleFormControlInput1" placeholder="Иванович" />
         </div>
         <div className="mb-3">
-          <label htmlFor="exampleFormControlInput1" className="form-label">Адрес электрорнной почты</label>
-          <input name="email" type="email" className="form-control" id="exampleFormControlInput1" placeholder="ivanov@mail.ru" />
+          <label htmlFor="exampleFormControlInput1" className="form-label">
+            Адрес электрорнной почты
+            {' '}
+            <span className="colortext">*</span>
+          </label>
+          <input name="email" type="email" className="form-control" id="exampleFormControlInput1" required placeholder="ivanov@mail.ru" />
         </div>
         <div className="mb-3">
           <label htmlFor="exampleFormControlInput1" className="form-label">Пароль</label>
@@ -41,12 +45,12 @@ module.exports = function SignUp() {
         </div>
         <div className="buttonsForm">
           <button type="submit" className="btn btn-outline-success">Зарегистрироваться</button>
-          <button type="button" className="btn btn-outline-dark" href="/login">У меня есть аккаунт</button>
+          <button id="signupButton" type="button" className="btn btn-outline-dark" href="/login">У меня есть аккаунт</button>
 
         </div>
 
       </form>
-
+      <script defer src="./js/signupScript.js" />
     </Layout>
   );
 };
