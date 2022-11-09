@@ -1,7 +1,7 @@
-'use strict';
 const {
-  Model
+  Model,
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Initiative extends Model {
     /**
@@ -9,9 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({User, Sphere}) {
-      this.belongsTo(User),
-      this.belongsTo(Sphere)
+
+    static associate({ User, Sphere }) {
+      this.belongsTo(User, { foreignKey: 'id' });
+      this.belongsTo(Sphere, { foreignKey: 'id' });
+
     }
   }
   Initiative.init({
@@ -21,10 +23,11 @@ module.exports = (sequelize, DataTypes) => {
     votes_pro: DataTypes.INTEGER,
     date_end: DataTypes.DATE,
     level: DataTypes.STRING,
-    region: DataTypes.STRING,
-    municip: DataTypes.STRING,
     status: DataTypes.STRING,
-    UserID: DataTypes.INTEGER
+
+    UserID: DataTypes.INTEGER,
+    SphereID: DataTypes.INTEGER,
+
   }, {
     sequelize,
     modelName: 'Initiative',

@@ -1,0 +1,62 @@
+
+body {
+  padding: 5px;
+}
+
+
+
+
+.addInitForm {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin-top: 100px;
+}
+
+#addInitBtn {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+
+
+
+.signUpForm {
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgba(206, 235, 132, 0.326);
+  border: 1px solid rgb(165, 156, 156);
+  border-radius: 3%;
+  box-shadow: 12px 12px 2px 1px rgba(109, 109, 221, 0.2);
+}
+.signUpForm >p {
+ 
+  text-align: center;
+  font-weight: bold;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.buttonsForm {
+  display: flex;
+  justify-content: space-evenly
+}
+
+.logInForm {
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgba(206, 235, 132, 0.326);
+  border: 1px solid rgb(165, 156, 156);
+  box-shadow: 12px 12px 2px 1px rgba(109, 109, 221, 0.2);
+}
+.logInForm >p {
+  text-align: center;
+  font-weight: bold;
+}
