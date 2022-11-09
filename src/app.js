@@ -10,6 +10,7 @@ const { sequelize } = require('../db/models');
 
 const app = express();
 const mainRouter = require('./routes/mainRouter');
+const initRouter = require('./routes/initRouter');
 
 app.use(morgan('dev'));
 
@@ -33,7 +34,8 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 
-app.use('/', mainRouter)
+app.use('/', mainRouter);
+app.use('/init', initRouter);
 
 app.listen(PORT, async () => {
   try {
