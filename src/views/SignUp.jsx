@@ -19,8 +19,12 @@ module.exports = function SignUp() {
           <input name="middlename" type="text" className="form-control" id="exampleFormControlInput1" placeholder="Иванович" />
         </div>
         <div className="mb-3">
-          <label htmlFor="exampleFormControlInput1" className="form-label">Адрес электрорнной почты</label>
-          <input name="email" type="email" className="form-control" id="exampleFormControlInput1" placeholder="ivanov@mail.ru" />
+          <label htmlFor="exampleFormControlInput1" className="form-label">
+            Адрес электрорнной почты
+            {' '}
+            <span className="colortext">*</span>
+          </label>
+          <input name="email" type="email" className="form-control" id="exampleFormControlInput1" required placeholder="ivanov@mail.ru" />
         </div>
         <div className="mb-3">
           <label htmlFor="exampleFormControlInput1" className="form-label">Пароль</label>

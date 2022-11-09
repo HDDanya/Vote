@@ -11,7 +11,6 @@ const renderLogIn = (req, res) => {
 };
 
 const postLogIn = async (req, res) => {
-  console.log(req.body);
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ where: { email } });
@@ -24,10 +23,12 @@ const postLogIn = async (req, res) => {
       if (!match) {
         res.sendStatus(401);
       } else {
-        req.session.username = user.firstname;
-        req.session.userID = user.id;
+        req.session.user = user.dataValues;
 
-        res.sendStatus(200);
+        res.json({
+          name: user.firstname,
+          middlename: user.middlename,
+        });
       }
     }
   } catch (error) {
@@ -36,10 +37,10 @@ const postLogIn = async (req, res) => {
 };
 
 const LogOut = (req, res) => {
-  console.log(req.session.username);
+  console.log(req.session);
   req.session.destroy();
-  console.log(req.session.username);
-  res.send('Сессия удалена');
+  console.log(req.session);
+  res.redirect('/main');
 };
 
 module.exports = { renderLogIn, postLogIn, LogOut };
