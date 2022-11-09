@@ -1,9 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Initiative({ sphereList }) {
+module.exports = function Initiative({ sphereList, user }) {
   return (
-    <Layout>
+    <Layout isAuth={user}>
       <form method="POST" action="/init" className="addInitForm">
         <div className="mb-3">
           <div>

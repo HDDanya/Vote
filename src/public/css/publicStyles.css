@@ -38,6 +38,7 @@ body {
   font-weight: bold;
 }
 a {
+  cursor: pointer;
   text-decoration: none;
   color: black;
 }

@@ -6,4 +6,4 @@ const { renderMain } = require('../controllers/mainController');
 
 router.get('/', renderMain);
 
-module.exports = router;/// / hellp
+module.exports = router;
