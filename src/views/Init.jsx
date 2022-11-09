@@ -1,7 +1,8 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Initiative({ sphereList, municip, region }) {
+
+module.exports = function Initiative({ sphereList, user, municip, region }) {
   return (
     <Layout>
       <script />
