@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
     static associate({ User, Sphere }) {
       this.belongsTo(User, { foreignKey: 'id' });
       this.belongsTo(Sphere, { foreignKey: 'id' });
-
     }
   }
   Initiative.init({
