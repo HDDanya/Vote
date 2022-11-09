@@ -29,6 +29,9 @@ module.exports = function Layout({ children }) {
                 <li className="nav-item">
                   <a className="nav-link" href="#">Создать Инициативу</a>
                 </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="/logout">Выйти</a>
+                </li>
                 <li className="nav-item dropdown">
                   <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Dropdown

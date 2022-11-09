@@ -12,14 +12,19 @@ module.exports = function SignUp() {
         </div>
         <div className="mb-3">
           <label htmlFor="exampleFormControlInput1" className="form-label">Пароль</label>
+          <input name="password1" type="password" className="form-control" id="exampleFormControlInput1" placeholder="Используйте латинсие символы" />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">Повторите пароль</label>
           <input name="password" type="password" className="form-control" id="exampleFormControlInput1" placeholder="Используйте латинсие символы" />
         </div>
         <div className="buttonsForm">
           <button type="submit" className="btn btn-outline-success">Войти</button>
-          <button type="button" className="btn btn-outline-dark" href="/login">У меня нет аккакунта</button>
+          <button id="loginButton" type="button" className="btn btn-outline-dark">У меня нет аккакунта</button>
 
         </div>
       </form>
+      <script defer src="./js/loginScript.js" />
 
     </Layout>
   );
