@@ -108,14 +108,18 @@ module.exports = function ({
                 </h4>
               )}
             </div>
+
             {/* <div><a href={`/userinits/${title.UserID}`}>Все инициативы данного пользователя</a></div> */}
+
           </div>
 
         </>
 
       )}
+
       {/* </div>
         <div><a href={`/userinits/${title.UserID}`}>Все инициативы данного пользователя</a></div> */}
+
 
       <script defer src="/js/voteScript.js" />
       <script defer src="/js/dateCompare.js" />
