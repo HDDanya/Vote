@@ -56,6 +56,7 @@ app.use('/entry', entryRouter);
 app.use('/logout', logOutRouter);
 app.use('/lk', lkRouter);
 app.use('/filter', filterRouter);
+app.use('/filter', filterRouter);
 
 app.listen(PORT, async () => {
   try {
