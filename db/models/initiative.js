@@ -14,12 +14,12 @@ module.exports = (sequelize, DataTypes) => {
     static associate({ User, Sphere, Golos }) {
       this.belongsTo(User, { foreignKey: 'id' });
       this.belongsTo(Sphere, { foreignKey: 'id' });
-      this.hasMany(Golos)
+      this.hasMany(Golos);
     }
   }
   Initiative.init({
     title: DataTypes.STRING,
-    body: DataTypes.STRING,
+    body: DataTypes.TEXT,
     date_end: DataTypes.DATE,
     level: DataTypes.STRING,
     status: DataTypes.STRING,
