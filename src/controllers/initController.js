@@ -3,16 +3,14 @@ const Init = require('../views/Init');
 const { Initiative, Sphere } = require('../../db/models');
 
 const renderInit = async (req, res) => {
-
   const { user } = req.session;
   const { municip, region } = req.session.user;
   if (user) {
     const sphereList = await Sphere.findAll();
-    renderTemplate(Init, { sphereList, user, municip, region }, res);
-
+    renderTemplate(Init, {
+      sphereList, user, municip, region,
+    }, res);
   } else { res.send('<h2>Страница доступна только авторизированным пользователям</h2>'); }
-
-
 };
 
 const addInitRender = async (req, res) => {
