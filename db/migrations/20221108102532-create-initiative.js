@@ -14,7 +14,7 @@ module.exports = {
         type: Sequelize.TEXT,
       },
       date_end: {
-        type: Sequelize.STRING,
+        type: Sequelize.DATE,
         // defaultValue: new Date(this.createdAt.getDate() + 30),
       },
       level: {

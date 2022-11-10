@@ -56,7 +56,7 @@ module.exports = function ({
               </h4>
             )}
           </div>
-          <div><a href={`/filter/${title.UserID}`}>Все инициативы данного пользователя</a></div>
+          <div><a href={`/userinits/${title.UserID}`}>Все инициативы данного пользователя</a></div>
         </div>
       ) : (
         <>
@@ -107,19 +107,12 @@ module.exports = function ({
                 </h4>
               )}
             </div>
-            <div><a href={`/filter/${title.UserID}`}>Все инициативы данного пользователя</a></div>
+            <div><a href={`/userinits/${title.UserID}`}>Все инициативы данного пользователя</a></div>
           </div>
 
         </>
 
       )}
-
-
-            </h4>
-          )}
-        </div>
-        <div><a href={`/userinits/${title.UserID}`}>Все инициативы данного пользователя</a></div>
-      </div>
 
       <script defer src="/js/voteScript.js" />
       <script defer src="/js/dateCompare.js" />
