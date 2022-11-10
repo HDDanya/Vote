@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Initiative.init({
     title: DataTypes.STRING,
-    body: DataTypes.STRING,
+    body: DataTypes.TEXT,
     date_end: DataTypes.DATE,
     level: DataTypes.STRING,
     status: DataTypes.STRING,

@@ -16,7 +16,7 @@ module.exports = function ({ user, allTitle }) {
               <p className="card-text">
                 {el.body}
               </p>
-              <a id={el.id} href="#" className="btn btn-primary">Подробнее</a>
+              <a id={el.id} href={`/entry/${el.id}`} className="btn btn-primary">Подробнее</a>
 
             </div>
           </div>
