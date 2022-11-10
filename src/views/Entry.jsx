@@ -6,7 +6,6 @@ const Layout = require('./Layout');
 module.exports = function ({
   title, user, voteOne, votesObj, result,
 }) {
-  console.log('CHECK true/false!!!!!', result);
   return (
     <Layout isAuth={user}>
       {result ? (
@@ -56,11 +55,13 @@ module.exports = function ({
               </h4>
             )}
           </div>
-          <div><a href={`/filter/${title.UserID}`}>Все инициативы данного пользователя</a></div>
+          <div><a href={`/userinits/${title.UserID}`}>Все инициативы данного пользователя</a></div>
         </div>
       ) : (
         <>
-          <div><h3>*Данная инициатива находится в архиве</h3></div>
+          <div>
+            <h3>*Данная инициатива находится в архиве</h3>
+          </div>
           <div id="initCard" className="card w-75 mx-auto disable" style={{ width: `${26}rem` }}>
             {/* <img src="..." class="card-img-top" alt="..." /> */}
             <div className="card-body">
@@ -89,8 +90,8 @@ module.exports = function ({
               )
               : (
                 <div id="votesButtons" className="card-body">
-                  <a name="vote" href="/vote" id={title.id} data-userid={user.id} className="card-link yes">Проголосовать "ЗА"</a>
-                  <a name="vote" href="/vote" id={title.id} data-userid={user.id} className="card-link no">Проголосовать "ПРОТИВ"</a>
+                  {/* <a name="vote" href="/vote" id={title.id} data-userid={user.id} className="card-link yes">Проголосовать "ЗА"</a>
+                  <a name="vote" href="/vote" id={title.id} data-userid={user.id} className="card-link no">Проголосовать "ПРОТИВ"</a> */}
                 </div>
               )}
             <div>
@@ -107,19 +108,14 @@ module.exports = function ({
                 </h4>
               )}
             </div>
-            <div><a href={`/filter/${title.UserID}`}>Все инициативы данного пользователя</a></div>
+            {/* <div><a href={`/userinits/${title.UserID}`}>Все инициативы данного пользователя</a></div> */}
           </div>
 
         </>
 
       )}
-
-
-            </h4>
-          )}
-        </div>
-        <div><a href={`/userinits/${title.UserID}`}>Все инициативы данного пользователя</a></div>
-      </div>
+      {/* </div>
+        <div><a href={`/userinits/${title.UserID}`}>Все инициативы данного пользователя</a></div> */}
 
       <script defer src="/js/voteScript.js" />
       <script defer src="/js/dateCompare.js" />

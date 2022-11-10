@@ -7,11 +7,13 @@ const renderEntry = async (req, res) => {
   try {
     const title = await Initiative.findByPk(req.params.id);
     const deadline = title.date_end;
-    const startDate = title.createdAt;
-    console.log('DEAD', deadline, 'START', startDate);
-
-    const result = (deadline > startDate);
-    console.log('RESULT DATE COMPARE', result);
+    const today = new Date();
+    const result = (deadline > today);
+    if (result === false) {
+      await Initiative.update({ status: 'closed' }, { where: { id: req.params.id } });
+    } else {
+      await Initiative.update({ status: 'active' }, { where: { id: req.params.id } });
+    }
     const voteOne = await Golos.findOne({ where: { InitiativeId: req.params.id, UserId: user.id } });
     const voteAllPro = await Golos.findAll({ where: { InitiativeId: req.params.id, vote_pro: 1 } });
     const voteAllAgainst = await Golos.findAll({ where: { InitiativeId: req.params.id, vote_against: 1 } });

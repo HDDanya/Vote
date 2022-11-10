@@ -1,13 +1,19 @@
 const renderTemplate = require('../lib/renderReactModule');
 const Main = require('../views/Main');
-const { Initiative } = require('../../db/models');
+const { Initiative, Golos } = require('../../db/models');
 
 const renderMain = async (req, res) => {
-  const allTitle = await Initiative.findAll();
-  const title = await allTitle.map((el) => el.dataValues);
-  const { user } = req.session;
+  try {
+    const { user } = req.session;
+    const allTitle = await Initiative.findAll();
+    const title = await allTitle.map((el) => el.dataValues);
 
-  renderTemplate(Main, { title, user }, res);
+    renderTemplate(Main, {
+      title, user,
+    }, res);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 module.exports = { renderMain };

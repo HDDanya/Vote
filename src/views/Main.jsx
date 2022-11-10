@@ -1,7 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Main({ title, user }) {
+module.exports = function Main({
+  title, user,
+}) {
   return (
     <Layout isAuth={user}>
 
@@ -13,6 +15,7 @@ module.exports = function Main({ title, user }) {
               <h5 className="card-title">
                 {el.title}
               </h5>
+
               {/* <p className="card-text">
                 {el.body}
               </p> */}
