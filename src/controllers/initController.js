@@ -29,6 +29,7 @@ const addInitRender = async (req, res) => {
       body,
       SphereID,
       level,
+      status: 'active',
       UserID,
       date_end: new Date(new Date().setFullYear(2022, 11, 25)),
     });
