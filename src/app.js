@@ -21,6 +21,7 @@ const lkRouter = require('./routes/lkRouter');
 const filterRouter = require('./routes/filterRouter');
 const { LogOut } = require('./controllers/logInController');
 const entryRouter = require('./routes/entryRouter');
+const UserInits = require('./routes/userInits');
 
 app.use(morgan('dev'));
 
@@ -57,6 +58,7 @@ app.use('/logout', logOutRouter);
 app.use('/lk', lkRouter);
 app.use('/filter', filterRouter);
 app.use('/filter', filterRouter);
+app.use('/userinits', UserInits)
 
 app.listen(PORT, async () => {
   try {
