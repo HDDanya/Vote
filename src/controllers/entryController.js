@@ -6,12 +6,18 @@ const renderEntry = async (req, res) => {
   const { user } = req.session;
   try {
     const title = await Initiative.findByPk(req.params.id);
+    const deadline = title.date_end;
+    const startDate = title.createdAt;
+    console.log('DEAD', deadline, 'START', startDate);
+
+    const result = (deadline > startDate);
+    console.log('RESULT DATE COMPARE', result);
     const voteOne = await Golos.findOne({ where: { InitiativeId: req.params.id, UserId: user.id } });
     const voteAllPro = await Golos.findAll({ where: { InitiativeId: req.params.id, vote_pro: 1 } });
     const voteAllAgainst = await Golos.findAll({ where: { InitiativeId: req.params.id, vote_against: 1 } });
     const votesObj = { pro: voteAllPro.length, against: voteAllAgainst.length };
     renderTemplate(Entry, {
-      title, user, voteOne, votesObj,
+      title, user, voteOne, votesObj, result,
     }, res);
   } catch (error) {
     console.log(error);
@@ -21,7 +27,6 @@ const renderEntry = async (req, res) => {
 const renderVote = async (req, res) => {
   try {
     const { UserId, InitId } = req.body;
-
     if (req.body.vote === 'yes') {
       const response = await Golos.create({ UserId, InitiativeId: InitId, vote_pro: 1 });
       res.sendStatus(200);

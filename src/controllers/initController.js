@@ -11,7 +11,6 @@ const renderInit = async (req, res) => {
       sphereList, user, municip, region,
     }, res);
   } else { res.send('<h2>Страница доступна только авторизированным пользователям</h2>'); }
-  
 };
 
 const addInitRender = async (req, res) => {
@@ -31,6 +30,7 @@ const addInitRender = async (req, res) => {
       SphereID,
       level,
       UserID,
+      date_end: new Date(new Date().setFullYear(2022, 11, 25)),
     });
 
     res.redirect('/');
