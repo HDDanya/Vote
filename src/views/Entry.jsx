@@ -7,7 +7,7 @@ module.exports = function ({
 }) {
   return (
     <Layout isAuth={user}>
-      <div className="card w-75 mx-auto" style={{ width: `${26}rem` }}>
+      <div id="initCard" className="card w-75 mx-auto" style={{ width: `${26}rem` }}>
         {/* <img src="..." class="card-img-top" alt="..." /> */}
         <div className="card-body">
           <h5 className="card-title">{title.title}</h5>
@@ -19,7 +19,8 @@ module.exports = function ({
             {' '}
           </li>
           <li className="list-group-item">
-            {`Проголосать можно до: ${new Date(title.createdAt.setDate(title.createdAt.getDate() + 30)).toDateString()}`}
+            {/* {`Проголосать можно до:${new Date(title.createdAt.setDate(title.createdAt.getDate() + 30)).toDateString()}`} */}
+            {`Проголосать можно до:${new Date(title.date_end.getDate() + 1).toDateString()}`}
 
           </li>
           <li className="list-group-item">Данные о голосовании:</li>
@@ -55,6 +56,7 @@ module.exports = function ({
         <div><a href={`/filter/${title.UserID}`}>Все инициативы данного пользователя</a></div>
       </div>
       <script defer src="/js/voteScript.js" />
+      <script defer src="/js/dateCompare.js" />
     </Layout>
   );
 };

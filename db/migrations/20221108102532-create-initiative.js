@@ -13,9 +13,10 @@ module.exports = {
       body: {
         type: Sequelize.STRING,
       },
-      date_end: {
+      /*   date_end: {
         type: Sequelize.DATE,
-      },
+        defaultValue: new Date(this.createdAt.getDate() + 30),
+      }, */
       level: {
         type: Sequelize.STRING,
       },
@@ -41,6 +42,11 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+      },
+      date_end: {
+        type: Sequelize.DATE,
+        // defaultValue: new Date(this.createdAt.getDate() + 30),
+        defaultValue: '2023-04-14',
       },
       updatedAt: {
         allowNull: false,
