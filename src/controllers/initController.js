@@ -11,6 +11,7 @@ const renderInit = async (req, res) => {
       sphereList, user, municip, region,
     }, res);
   } else { res.send('<h2>Страница доступна только авторизированным пользователям</h2>'); }
+  
 };
 
 const addInitRender = async (req, res) => {
