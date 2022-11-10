@@ -19,7 +19,24 @@ module.exports = {
       title: 'Здравоохранение',
       createdAt: new Date(),
       updatedAt: new Date(),
-    }], {});
+    },
+    {
+      title: 'Патриотическое воспитание',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      title: 'Интернет, связь и прочие коммуникации',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      title: 'Окружающая среда',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+
+    ], {});
 
     /**
      * Add seed commands here.
