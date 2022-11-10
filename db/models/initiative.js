@@ -1,6 +1,7 @@
 const {
   Model,
 } = require('sequelize');
+const golos = require('./golos');
 
 module.exports = (sequelize, DataTypes) => {
   class Initiative extends Model {
@@ -10,20 +11,22 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
 
-    static associate({User, Sphere}) {
-      this.belongsTo(User,{ foreignKey: 'id' }),
-      this.belongsTo(Sphere,{ foreignKey: 'id' })
-
+    static associate({ User, Sphere, Golos }) {
+      this.belongsTo(User, { foreignKey: 'id' });
+      this.belongsTo(Sphere, { foreignKey: 'id' });
+      this.hasMany(Golos);
     }
   }
   Initiative.init({
     title: DataTypes.STRING,
     body: DataTypes.STRING,
-    votes_against: DataTypes.INTEGER,
-    votes_pro: DataTypes.INTEGER,
     date_end: DataTypes.DATE,
     level: DataTypes.STRING,
     status: DataTypes.STRING,
+
+    UserID: DataTypes.INTEGER,
+    SphereID: DataTypes.INTEGER,
+
   }, {
     sequelize,
     modelName: 'Initiative',

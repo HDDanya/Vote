@@ -15,15 +15,21 @@ const postLogIn = async (req, res) => {
   try {
     const user = await User.findOne({ where: { email } });
     if (!user) {
-      res.send('Проверьте адрес почты');
+      console.log('user!!');
+      res.sendStatus(400);
     }
     if (user) {
       const match = await bcrypt.compare(password, user.password);
       if (!match) {
-        res.send('Пароль неверный');
+        res.sendStatus(401);
       } else {
-        req.session.username = user.firstname;
-        res.redirect('/main');
+        req.session.user = user.dataValues;
+        console.log(user.dataValues);
+
+        res.json({
+          name: user.firstname,
+          middlename: user.middlename,
+        });
       }
     }
   } catch (error) {
@@ -31,4 +37,11 @@ const postLogIn = async (req, res) => {
   }
 };
 
-module.exports = { renderLogIn, postLogIn };
+const LogOut = (req, res) => {
+  console.log(req.session);
+  req.session.destroy();
+  console.log(req.session);
+  res.redirect('/');
+};
+
+module.exports = { renderLogIn, postLogIn, LogOut };

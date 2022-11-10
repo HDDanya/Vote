@@ -1,25 +1,28 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Main({ title }) {
+module.exports = function Main({ title, user }) {
   return (
-    <Layout>
+    <Layout isAuth={user}>
 
-      {title.map((el) => (
-        <div className='card_container'>
-          <div class="card " style={{ width: 18 + 'rem' }}>
-            <img src="" class="card-img-top" alt="" />
-            <div class="card-body">
-              <h5 class="card-title">
-                {el.title}
-                {' '}
-              </h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+      <div className="card_container">
+        <>
+          {title.map((el) => (
+            <div className="card" style={{ width: 18 + 'rem' }}>
+              {/* <img src="" className="card-img-top" alt="" /> */}
+              <div className="card-body">
+                <h5 className="card-title">
+                  {el.title}
+                </h5>
+                <p className="card-text">
+                  {el.body}
+                </p>
+                <a href={`/entry/${el.id}`} className="btn btn-primary">Подробнее</a>
+              </div>
             </div>
-          </div>
-        </div>
-      ))}
+          ))}
+        </>
+      </div>
     </Layout>
   );
 };
