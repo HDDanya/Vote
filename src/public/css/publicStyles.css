@@ -72,3 +72,9 @@ a {
 .inputVisible {
   visibility: visible;
 }
+
+.disable {
+  pointer-events: none;
+  cursor: default;
+  color: #888;
+}
