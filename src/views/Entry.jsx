@@ -11,7 +11,7 @@ module.exports = function ({
         {/* <img src="..." class="card-img-top" alt="..." /> */}
         <div className="card-body">
           <h5 className="card-title">{title.title}</h5>
-          <p className="card-text">Подробное описание инициативы</p>
+          <p className="card-text">{title.body}</p>
         </div>
         <ul className="list-group list-group-flush">
           <li className="list-group-item">
