@@ -1,4 +1,3 @@
-
 document.addEventListener('click', async (event) => {
   const yesBtn = document.querySelector('.yes');
   const noBtn = document.querySelector('.no');
@@ -24,10 +23,10 @@ document.addEventListener('click', async (event) => {
       if (response.status === 200) {
         yesBtn.classList.add('disable');
         noBtn.classList.add('disable');
-        const divA = document.createElement("div");
-        divA.innerText = 'Спасибо, ваш голос учтен'
+        const divA = document.createElement('div');
+        divA.innerText = 'Спасибо, ваш голос учтен';
         event.target.parentElement.append(divA);
-        alert('Вы проголосовали!')
+        alert('Вы проголосовали!');
       }
       // if (response.status === 400) {
       //   yesBtn.classList.add('disable');
