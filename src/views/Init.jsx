@@ -1,10 +1,11 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-
-module.exports = function Initiative({ sphereList, user, municip, region }) {
+module.exports = function Initiative({
+  sphereList, newUser, municip, region,
+}) {
   return (
-    <Layout Layout isAuth={user}>
+    <Layout Layout isAuth={newUser}>
       <script />
 
       <form method="POST" action="/init" className="addInitForm">

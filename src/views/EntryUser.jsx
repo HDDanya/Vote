@@ -3,7 +3,7 @@ const { DATE } = require('sequelize');
 
 const Layout = require('./Layout');
 
-module.exports = function ({
+module.exports = function EntryAndUser({
   title, user, voteOne, votesObj, result, InitCreator,
 }) {
   return (
@@ -42,10 +42,10 @@ module.exports = function ({
               </div>
             )}
           <div>
-            <h1 className='votescounter'>
+            <h1 className="votescounter">
               {' '}
               Общее количество голосов:
-              <div className='votesnumber'>{votesObj.pro + votesObj.against}</div>
+              <div className="votesnumber">{votesObj.pro + votesObj.against}</div>
             </h1>
             {votesObj.pro === 0 && votesObj.against === 0 ? ('') : (
               <h4>
@@ -118,10 +118,10 @@ module.exports = function ({
                 </div>
               )}
             <div>
-              <h1 className='votescounter'>
+              <h1 className="votescounter">
                 {' '}
                 Общее количество голосов:
-                <div className='votesnumber'>{votesObj.pro + votesObj.against}</div>
+                <div className="votesnumber">{votesObj.pro + votesObj.against}</div>
               </h1>
               {votesObj.pro === 0 && votesObj.against === 0 ? ('') : (
                 <h4>
