@@ -15,19 +15,21 @@ module.exports = function Main({
               <h5 className="card-title">
                 {el.title}
               </h5>
-              <div>
-                <h3>
+              <div className='maincard'>
+                <p>
                   {
                     el.Golos.filter((g) => g.vote_pro === 1).length === 0 && el.Golos.filter((g) => g.vote_against === 1).length === 0
                       ? ('Еще никто не голосовал')
                       : (`${Math.round(el.Golos.filter((g) => g.vote_pro === 1).length / (el.Golos.filter((g) => g.vote_against === 1).length
-                        + el.Golos.filter((g) => g.vote_pro === 1).length) * 100)}% проголосовали за
-                        Общее количество голосов:
-                        
-                  ${(el.Golos.filter((g) => g.vote_against === 1).length
-                          + el.Golos.filter((g) => g.vote_pro === 1).length)}`)
+                        + el.Golos.filter((g) => g.vote_pro === 1).length) * 100)}% за`)
                   }
-                </h3>
+                </p>
+                <p>  
+                  Всего голосов:
+
+                  {` ${(el.Golos.filter((g) => g.vote_against === 1).length
+                  + el.Golos.filter((g) => g.vote_pro === 1).length)}`}
+                </p>
                 {/*  <h3>
 
                   Общее количество голосов:
@@ -37,8 +39,10 @@ module.exports = function Main({
                   </h5>
                 </h3> */}
               </div>
-              <div>
-                Уровень:
+              <div className='maincard'>
+                <p>
+                  Уровень:
+                </p>
                 <h5 className="card-title">
                   {el.level}
                 </h5>
@@ -46,7 +50,9 @@ module.exports = function Main({
               {/* <p className="card-text">
                 {el.body}
               </p> */}
+              <div className='morebtn'>
               <a href={`/entry/${el.id}`} className="btn btn-primary">Подробнее</a>
+              </div>
             </div>
           </div>
         ))}
