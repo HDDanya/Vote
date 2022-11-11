@@ -55,8 +55,16 @@ module.exports = function ({
               </h4>
             )}
           </div>
+          <div id="initLevel" className="card-body">
+            <h3>
+              Уровень инициативы:
+              {' '}
+              {title.level}
+            </h3>
+          </div>
           <div><a href={`/userinits/${title.UserID}`}>Все инициативы данного пользователя</a></div>
         </div>
+
       ) : (
         <>
           <div>
@@ -107,6 +115,13 @@ module.exports = function ({
 
                 </h4>
               )}
+              <div id="initLevel" className="card-body">
+                <h3>
+                  Уровень инициативы:
+                  {' '}
+                  {title.level}
+                </h3>
+              </div>
             </div>
 
             {/* <div><a href={`/userinits/${title.UserID}`}>Все инициативы данного пользователя</a></div> */}
