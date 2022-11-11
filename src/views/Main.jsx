@@ -10,7 +10,7 @@ module.exports = function Main({
       <div className="card_container">
         {title.map((el) => (
           <div className="card" style={{ width: `${18}rem` }}>
-            {/* <img src="" className="card-img-top" alt="" /> */}
+            <img src="pics/volonter-goda-400x171.jpg" className="card-img-top" alt="background" />
             <div className="card-body">
               <h5 className="card-title">
                 {el.title}
