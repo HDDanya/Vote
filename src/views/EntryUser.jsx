@@ -10,7 +10,7 @@ module.exports = function EntryAndUser({
     <Layout isAuth={user}>
       {result ? (
         <div id="initCard" className="card w-75 mx-auto" style={{ width: `${26}rem` }}>
-          {/* <img src="..." class="card-img-top" alt="..." /> */}
+          <img src="pics/back3.jpeg" className="card-img-top" alt="pic" />
           <div className="card-body">
             <h5 className="card-title">{title.title}</h5>
             <p className="card-text">{title.body}</p>
@@ -87,6 +87,7 @@ module.exports = function EntryAndUser({
           </div>
           <div id="initCard" className="card w-75 mx-auto disable" style={{ width: `${26}rem` }}>
             {/* <img src="..." class="card-img-top" alt="..." /> */}
+            <img src="pics/back3.jpeg" className="card-img-top" alt="pic" />
             <div className="card-body">
               <h5 className="card-title">{title.title}</h5>
               <p className="card-text">{title.body}</p>
