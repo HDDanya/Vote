@@ -42,9 +42,10 @@ module.exports = function ({
               </div>
             )}
           <div>
-            <h1>
+            <h1 className='votescounter'>
               {' '}
-              {`Общее количество голосов: ${votesObj.pro + votesObj.against}`}
+              Общее количество голосов:
+              <div className='votesnumber'>{votesObj.pro + votesObj.against}</div>
             </h1>
             {votesObj.pro === 0 && votesObj.against === 0 ? ('') : (
               <h4>
@@ -103,9 +104,10 @@ module.exports = function ({
                 </div>
               )}
             <div>
-              <h1>
+              <h1 className='votescounter'>
                 {' '}
-                {`Общее количество голосов: ${votesObj.pro + votesObj.against}`}
+                Общее количество голосов:
+                <div className='votesnumber'>{votesObj.pro + votesObj.against}</div>
               </h1>
               {votesObj.pro === 0 && votesObj.against === 0 ? ('') : (
                 <h4>
