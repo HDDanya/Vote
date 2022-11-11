@@ -2,8 +2,8 @@ document.addEventListener('click', async (event) => {
   const yesBtn = document.querySelector('.yes');
   const noBtn = document.querySelector('.no');
   const votesButtons = document.getElementById('votesButtons');
-  /*   console.log('YES', yesBtn);
-  console.log('NOOO', noBtn); */
+  const hnum = document.querySelector('.votesnumber');
+  const s = Number(hnum.innerHTML) + 1;
 
   if (event.target.name === 'vote') {
     try {
@@ -21,21 +21,16 @@ document.addEventListener('click', async (event) => {
         body: JSON.stringify({ UserId, InitId, vote }),
       });
       if (response.status === 200) {
+        hnum.innerText = s;
         yesBtn.classList.add('disable');
         noBtn.classList.add('disable');
         const divA = document.createElement('div');
         divA.innerText = 'Спасибо, ваш голос учтен';
         event.target.parentElement.append(divA);
         alert('Вы проголосовали!');
+
+
       }
-      // if (response.status === 400) {
-      //   yesBtn.classList.add('disable');
-      //   noBtn.classList.add('disable');
-      //   const divA = document.createElement("div");
-      //   divA.innerText = 'Спасибо, ваш голос учтен'
-      //   event.target.parentElement.append(divA);
-      //   alert('Вы проголосовали!')
-      // }
     } catch (error) {
       console.log(error);
     }

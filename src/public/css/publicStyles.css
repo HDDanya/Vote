@@ -78,3 +78,7 @@ a {
   cursor: default;
   color: #888;
 }
+.votescounter{
+  display: flex;
+  gap: 1em;
+}
