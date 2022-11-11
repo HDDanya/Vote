@@ -1,34 +1,63 @@
 const renderTemplate = require('../lib/renderReactModule');
-const Entry = require('../views/Entry');
+const Entry = require('../views/EntryUser');
+const EntryNoUser = require('../views/EntryNoUser');
 const { Initiative, Golos, User } = require('../../db/models');
 
 const renderEntry = async (req, res) => {
-  const { user } = req.session;
-  try {
-    // const title = await Initiative.findByPk(req.params.id);
-    const title = await Initiative.findOne({ where: { id: req.params.id } });
+  const user = req.session?.user;
+  if (user) {
+    // const { user } = req.session;
 
-    const InitCreatorID = title.UserID;
+    try {
+      // const title = await Initiative.findByPk(req.params.id);
+      const title = await Initiative.findOne({ where: { id: req.params.id } });
 
-    const InitCreator = await User.findByPk(InitCreatorID);
+      const InitCreatorID = title.UserID;
 
-    const deadline = title.date_end;
-    const today = new Date();
-    const result = (deadline > today);
-    if (result === false) {
-      await Initiative.update({ status: 'closed' }, { where: { id: req.params.id } });
-    } else {
-      await Initiative.update({ status: 'active' }, { where: { id: req.params.id } });
+      const InitCreator = await User.findByPk(InitCreatorID);
+
+      const deadline = title.date_end;
+      const today = new Date();
+      const result = (deadline > today);
+      if (result === false) {
+        await Initiative.update({ status: 'closed' }, { where: { id: req.params.id } });
+      } else {
+        await Initiative.update({ status: 'active' }, { where: { id: req.params.id } });
+      }
+      const voteOne = await Golos.findOne({ where: { InitiativeId: req.params.id, UserId: user.id } });
+      const voteAllPro = await Golos.findAll({ where: { InitiativeId: req.params.id, vote_pro: 1 } });
+      const voteAllAgainst = await Golos.findAll({ where: { InitiativeId: req.params.id, vote_against: 1 } });
+      const votesObj = { pro: voteAllPro.length, against: voteAllAgainst.length };
+      renderTemplate(Entry, {
+        title, user, voteOne, votesObj, result, InitCreator,
+      }, res);
+    } catch (error) {
+      console.log(error);
     }
-    const voteOne = await Golos.findOne({ where: { InitiativeId: req.params.id, UserId: user.id } });
-    const voteAllPro = await Golos.findAll({ where: { InitiativeId: req.params.id, vote_pro: 1 } });
-    const voteAllAgainst = await Golos.findAll({ where: { InitiativeId: req.params.id, vote_against: 1 } });
-    const votesObj = { pro: voteAllPro.length, against: voteAllAgainst.length };
-    renderTemplate(Entry, {
-      title, user, voteOne, votesObj, result, InitCreator,
-    }, res);
-  } catch (error) {
-    console.log(error);
+  } else {
+    console.log('else');
+    try {
+      const title = await Initiative.findOne({ where: { id: req.params.id } });
+      const InitCreatorID = title.UserID;
+      const InitCreator = await User.findByPk(InitCreatorID);
+      const deadline = title.date_end;
+      const today = new Date();
+      const result = (deadline > today);
+      if (result === false) {
+        await Initiative.update({ status: 'closed' }, { where: { id: req.params.id } });
+      } else {
+        await Initiative.update({ status: 'active' }, { where: { id: req.params.id } });
+      }
+      // const voteOne = await Golos.findOne({ where: { InitiativeId: req.params.id, UserId: user.id } });
+      const voteAllPro = await Golos.findAll({ where: { InitiativeId: req.params.id, vote_pro: 1 } });
+      const voteAllAgainst = await Golos.findAll({ where: { InitiativeId: req.params.id, vote_against: 1 } });
+      const votesObj = { pro: voteAllPro.length, against: voteAllAgainst.length };
+      renderTemplate(EntryNoUser, {
+        title, result, votesObj, InitCreator,
+      }, res);
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 
