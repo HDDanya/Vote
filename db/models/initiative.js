@@ -23,7 +23,6 @@ module.exports = (sequelize, DataTypes) => {
     date_end: DataTypes.DATE,
     level: DataTypes.STRING,
     status: DataTypes.STRING,
-
     UserID: DataTypes.INTEGER,
     SphereID: DataTypes.INTEGER,
 
