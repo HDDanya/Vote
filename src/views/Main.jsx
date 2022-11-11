@@ -15,28 +15,29 @@ module.exports = function Main({
               <h5 className="card-title">
                 {el.title}
               </h5>
+              <div>
+                <h3>
+                  {
+                    el.Golos.filter((g) => g.vote_pro === 1).length === 0 && el.Golos.filter((g) => g.vote_against === 1).length === 0
+                      ? ('Еще никто не голосовал') : (`${el.Golos.filter((g) => g.vote_pro === 1).length / (el.Golos.filter((g) => g.vote_against === 1).length
+                        + el.Golos.filter((g) => g.vote_pro === 1).length) * 100}% проголосовали за`)
+                  }
+                </h3>
+                <h3>
 
-              <h2>
-
-                {(el.Golos.filter((g) => g.vote_pro === 1).length)
-                  / (el.Golos.filter((g) => g.vote_against === 1).length
-                    + el.Golos.filter((g) => g.vote_pro === 1).length) * 100 ? (`${(el.Golos.filter((g) => g.vote_against === 1).length
-                      + el.Golos.filter((g) => g.vote_pro === 1).length) * 100}%`) : ('Еще никто не голосовал')}
-
-              </h2>
-
-             
-              Общее количество голосов:
-              <h5 className="card-title">
-                {(el.Golos.filter((g) => g.vote_against === 1).length
-                  + el.Golos.filter((g) => g.vote_pro === 1).length)}
-              </h5>
-              Уровень:
-              <h5 className="card-title">
-                {el.level}
-              </h5>
-
-
+                  Общее количество голосов:
+                  <h5 className="card-title">
+                    {(el.Golos.filter((g) => g.vote_against === 1).length
+                      + el.Golos.filter((g) => g.vote_pro === 1).length)}
+                  </h5>
+                </h3>
+              </div>
+              <div>
+                Уровень:
+                <h5 className="card-title">
+                  {el.level}
+                </h5>
+              </div>
               {/* <p className="card-text">
                 {el.body}
               </p> */}

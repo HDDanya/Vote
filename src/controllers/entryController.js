@@ -1,11 +1,17 @@
 const renderTemplate = require('../lib/renderReactModule');
 const Entry = require('../views/Entry');
-const { Initiative, Golos } = require('../../db/models');
+const { Initiative, Golos, User } = require('../../db/models');
 
 const renderEntry = async (req, res) => {
   const { user } = req.session;
   try {
-    const title = await Initiative.findByPk(req.params.id);
+    // const title = await Initiative.findByPk(req.params.id);
+    const title = await Initiative.findOne({ where: { id: req.params.id } });
+
+    const InitCreatorID = title.UserID;
+
+    const InitCreator = await User.findByPk(InitCreatorID);
+
     const deadline = title.date_end;
     const today = new Date();
     const result = (deadline > today);
@@ -19,7 +25,7 @@ const renderEntry = async (req, res) => {
     const voteAllAgainst = await Golos.findAll({ where: { InitiativeId: req.params.id, vote_against: 1 } });
     const votesObj = { pro: voteAllPro.length, against: voteAllAgainst.length };
     renderTemplate(Entry, {
-      title, user, voteOne, votesObj, result,
+      title, user, voteOne, votesObj, result, InitCreator,
     }, res);
   } catch (error) {
     console.log(error);

@@ -4,7 +4,7 @@ const { DATE } = require('sequelize');
 const Layout = require('./Layout');
 
 module.exports = function ({
-  title, user, voteOne, votesObj, result,
+  title, user, voteOne, votesObj, result, InitCreator,
 }) {
   return (
     <Layout isAuth={user}>
@@ -62,7 +62,21 @@ module.exports = function ({
               {title.level}
             </h3>
           </div>
-          <div><a href={`/userinits/${title.UserID}`}>Все инициативы данного пользователя</a></div>
+          <div id="initCreator" className="card-body">
+            <h3>
+              Автор инициативы:
+              {' '}
+              {InitCreator.lastname}
+              {' '}
+              {InitCreator.firstname}
+            </h3>
+          </div>
+          <div>
+            <a href={`/userinits/${title.UserID}`}>
+              Все инициативы данного автора
+            </a>
+
+          </div>
         </div>
 
       ) : (
@@ -122,10 +136,28 @@ module.exports = function ({
                   {title.level}
                 </h3>
               </div>
+              <div id="initCreator" className="card-body">
+                <div>
+                  <h3>
+                    Автор инициативы:
+                    {' '}
+                    {InitCreator.lastname}
+                    {' '}
+                    {InitCreator.firstname}
+                  </h3>
+                </div>
+              </div>
             </div>
 
             {/* <div><a href={`/userinits/${title.UserID}`}>Все инициативы данного пользователя</a></div> */}
 
+          </div>
+
+          <div>
+            <a href={`/userinits/${title.UserID}`}>
+              Все инициативы данного автора:
+
+            </a>
           </div>
 
         </>
@@ -134,7 +166,6 @@ module.exports = function ({
 
       {/* </div>
         <div><a href={`/userinits/${title.UserID}`}>Все инициативы данного пользователя</a></div> */}
-
 
       <script defer src="/js/voteScript.js" />
       <script defer src="/js/dateCompare.js" />
